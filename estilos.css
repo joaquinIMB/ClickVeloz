@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #000000;
+}
+.contain {
+  max-height: 100vh;
+  max-width: 100vw;
+  background: #000000;
+  font-family: "Press Start 2P", cursive;
+}
+.title {
+  margin: 30px auto;
+  text-align: center;
+  width: 90%;
+}
+.title h1 {
+  font-size: 70px;
+  color: #ffffff;
+  animation: _tittle 1s ease-out;
+  text-shadow: 0px 4px 2px #505050;
+}
+
+.modes {
+  width: 90%;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mode {
+  color: #ffffff;
+  line-height: 80px;
+  font-size: 40px;
+  margin: 0 auto;
+  background: #000000;
+  border-radius: 5%;
+  text-shadow: 4px 1px 4px #6b6b6b;
+}
+.mode:active {
+  transform: scale(0.9);
+  color: #505050;
+}
+
+.mode:hover {
+  color: #505050;
+  cursor: pointer;
+  text-shadow: 0px 1px 2px #ffffff;
+}
+
+.easy_mode {
+  animation: _easy 1s ease-in;
+}
+
+.hard_mode {
+  animation: _hard 1s ease-in-out;
+}
+.hardcore_mode {
+  animation: _hardcore 1s ease-out;
+}
+
+.squares-before-start {
+  display: none;
+}
+
+.all_squares {
+  width: 90%;
+  padding-left: 40px;
+  height: 40%;
+  margin: auto;
+  top: 180px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  pointer-events: none;
+  animation: _squares 2s ease;
+}
+.square {
+  width: 8rem;
+  height: 7.5rem;
+  margin: 1px;
+}
+
+.square1 {
+  opacity: 0;
+}
+@keyframes _tittle {
+  0% {
+    transform: translateY(-400px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes _easy {
+  0% {
+    transform: translateX(-850px);
+  }
+  90% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes _hard {
+  0% {
+    transform: translateX(-850px);
+  }
+  90% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes _hardcore {
+  0% {
+    transform: translateX(-850px);
+  }
+  90% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes _squares {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform-origin: left;
+    opacity: 1;
+  }
+}
