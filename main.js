@@ -70,7 +70,7 @@ for (let i = 0; i < square.length; i++) {
     square[i].classList.add("square1");
     square[i].style.pointerEvents = "none";
     countToWin++;
-    if (countToWin == 18) {
+    if (countToWin == 20) {
       clearTimeout(timeout);
       clearInterval(interval1);
       action();
@@ -83,7 +83,7 @@ function action() {
   time.style.display = "none";
   go.style.display = "none";
   btnReset.style.display = "block";
-  win = countToWin == 18;
+  win = countToWin == 20;
   win ? resetGame(win) : resetGame();
 }
 // RESET GAME FOR PLAY AGAIN
