@@ -51,7 +51,8 @@ go.addEventListener("click", start);
 function start() {
   squares.style.pointerEvents = "auto";
   timeout = setTimeout(action, 9000);
-  go.style.display = " none";
+  go.style.display = "none";
+  time.innerHTML = second;
   function countDown() {
     time.innerHTML = second;
     if (second == 0) {
@@ -62,7 +63,7 @@ function start() {
       second = second - 1;
     }
   }
-  interval1 = setInterval(countDown, 1000);
+  interval1 = setInterval(countDown, 875);
 }
 // WHEN YOU SELECT SQUARE
 for (let i = 0; i < square.length; i++) {
