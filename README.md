@@ -25,4 +25,7 @@ Proyecto en desarrollo.
 <li>Click all the squares in the shortest possible time.</li>
 </ol>
 
+<h2>Contributions<h2/>
+User: cabrerajuan1441
+
 <a>https://clickveloz.netlify.app/</a>
