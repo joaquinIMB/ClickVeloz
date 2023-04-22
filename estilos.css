@@ -73,15 +73,15 @@ body {
   color: #ffffff;
   font-size: 60px;
   margin: auto;
-  margin-bottom: 50px;
   background: #000000;
   text-shadow: 0px 4px 2px #4a4a4a;
   position: relative;
+  top: 20px;
 }
 
 .all_squares {
   margin: auto;
-  width: 80%;
+  width: 50%;
   height: auto;
   position: relative;
   display: flex;
@@ -91,7 +91,7 @@ body {
   animation: _squares 1.2s ease;
 }
 .square {
-  width: 7rem;
+  width: 7.67rem;
   height: 7.5rem;
 }
 
@@ -166,7 +166,7 @@ body {
   }
   .all_squares {
     width: 100%;
-    top: 0;
+    top: -10;
   }
   .square {
     width: 5rem;
