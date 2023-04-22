@@ -1,5 +1,10 @@
+// CONTAIN TITLE
+let containTitle = document.getElementById("contain-title");
+// TITLE H1
+let title = document.getElementById("title");
 // CONTAIN SQUARES || SQUARES
 const squares = document.getElementById("all_squares");
+squares.style.display = "none";
 let square = document.getElementsByClassName("square");
 // H2 EASY || HARD || HARDCORE
 const btn1 = document.getElementById("btn_easy");
@@ -10,15 +15,13 @@ const go = document.createElement("h2");
 let text = document.createTextNode("Play");
 go.appendChild(text);
 // CONTAIN MODES
-let contain = document.getElementById("play_modes");
+let containModes = document.getElementById("play_modes");
 // BUTTON RESET
 const btnReset = document.createElement("h2");
 let reset = document.createTextNode("Reset");
 btnReset.appendChild(reset);
 btnReset.classList.add("mode");
-// TITULO H1
-let tittle = document.querySelector("#title_");
-// TIME H2
+// TIME
 const time = document.getElementById("times");
 // INITIALIZED VARIABLE
 let second = 0;
@@ -26,8 +29,9 @@ let countToWin = 0;
 let win = false;
 let timeout = null;
 let interval1 = null;
+
 // WHEN YOU SELECT MODE
-function play(mode) {
+const play = (mode) => {
   if (mode === "Easy") {
     second = 8;
   }
@@ -40,18 +44,19 @@ function play(mode) {
   btn1.style.display = "none";
   btn2.style.display = "none";
   btn3.style.display = "none";
+  containTitle.style.display = "none";
   go.style.cursor = "pointer";
-  go.classList.add("mode");
-  time.classList.add("mode");
-  contain.appendChild(go);
-  contain.appendChild(time);
-}
-go.addEventListener("click", start);
+  go.classList.add("mode_go");
+  containModes.appendChild(go);
+  squares.style.display = "flex";
+};
 // TIME TO PLAY || INTERVAL || TIMEOUT
-function start() {
+const start = () => {
   squares.style.pointerEvents = "auto";
-  timeout = setTimeout(action, 9000);
   go.style.display = "none";
+  containModes.appendChild(time);
+  containModes.style.height = "auto";
+  time.classList.add("mode_go");
   time.innerHTML = second;
   function countDown() {
     time.innerHTML = second;
@@ -64,10 +69,14 @@ function start() {
     }
   }
   interval1 = setInterval(countDown, 875);
-}
+  timeout = setTimeout(action, 9000);
+};
+go.addEventListener("click", start);
+
 // WHEN YOU SELECT SQUARE
+
 for (let i = 0; i < square.length; i++) {
-  square[i].addEventListener("click", function () {
+  square[i].addEventListener("click", function (e) {
     square[i].classList.add("square1");
     square[i].style.pointerEvents = "none";
     countToWin++;
@@ -80,20 +89,22 @@ for (let i = 0; i < square.length; i++) {
 }
 
 // IF YOU SELECT ALL OR NOT
-function action() {
+const action = () => {
   time.style.display = "none";
   go.style.display = "none";
+  containTitle.style.display = "block";
   btnReset.style.display = "block";
+  btnReset.style.fontSize = "40px";
   win = countToWin == 20;
   win ? resetGame(win) : resetGame();
-}
+};
 // RESET GAME FOR PLAY AGAIN
-function resetGame(ifWin = false) {
-  contain.appendChild(btnReset);
+const resetGame = (ifWin = false) => {
+  containModes.appendChild(btnReset);
   btnReset.addEventListener("click", function () {
     location.reload();
   });
-  // condicional ternario
-  tittle.textContent = ifWin ? "¡You Win!" : "You Lose";
-  tittle.style.color = ifWin ? "#00ff00" : "red";
-}
+  title.textContent = ifWin ? "You Win" : "You Lose";
+  title.style.color = ifWin ? "#00ff00" : "red";
+  squares.style.opacity = ifWin ? "0.5" : "0.5";
+};

@@ -7,37 +7,35 @@ body {
   background: #000000;
 }
 .contain {
-  margin: 20px auto;
+  margin: auto;
   width: 100%;
-  height: 100%;
+  height: 95vh;
   background: #000000;
   font-family: "Press Start 2P", cursive;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
 }
-.title {
-  height: 10%;
-  padding: 20px;
+.contain-title {
   margin: auto;
   text-align: center;
-  width: 90%;
+  width: 100%;
 }
-.title h1 {
+.title {
   font-size: 70px;
   color: #ffffff;
-  animation: _tittle 1s ease-out;
+  animation: _title 1s ease-out;
   text-shadow: 0px 4px 2px #505050;
 }
 
 .modes {
-  width: 90%;
+  width: 100%;
   height: 30%;
   margin: 0 auto;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 
 .mode {
@@ -47,7 +45,7 @@ body {
   margin: 0 auto;
   background: #000000;
   border-radius: 5%;
-  text-shadow: 4px 1px 4px #6b6b6b;
+  text-shadow: 0px 4px 2px #4a4a4a;
 }
 .mode:active {
   transform: scale(0.9);
@@ -57,7 +55,7 @@ body {
 .mode:hover {
   color: #505050;
   cursor: pointer;
-  text-shadow: 0px 1px 2px #ffffff;
+  text-shadow: 1px 2px 2px #ffffff;
 }
 
 .easy_mode {
@@ -71,31 +69,36 @@ body {
   animation: _hardcore 1s ease-out;
 }
 
-.squares-before-start {
-  display: none;
+.mode_go {
+  color: #ffffff;
+  font-size: 60px;
+  margin: auto;
+  margin-bottom: 50px;
+  background: #000000;
+  text-shadow: 0px 4px 2px #4a4a4a;
+  position: relative;
 }
 
 .all_squares {
-  margin: 0 auto;
+  margin: auto;
   width: 80%;
-  height: 60%;
+  height: auto;
   position: relative;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: center;
   pointer-events: none;
-  animation: _squares 2s ease;
+  animation: _squares 1.2s ease;
 }
 .square {
   width: 7rem;
   height: 7.5rem;
-  margin: auto;
 }
 
 .square1 {
   opacity: 0;
 }
-@keyframes _tittle {
+@keyframes _title {
   0% {
     transform: translateY(-400px);
   }
@@ -151,12 +154,13 @@ body {
 }
 
 @media (max-width: 575.98px) and (orientation: portrait) {
-  #title_ {
-    font-size: 30px;
+  .title {
+    font-size: 40px;
     padding: 0;
+    line-height: 1.5;
   }
   .mode {
-    font-size: 30px;
+    font-size: 38px;
     margin: auto;
     line-height: 45px;
   }
@@ -167,6 +171,5 @@ body {
   .square {
     width: 5rem;
     height: 5rem;
-    margin: 3px auto;
   }
 }
