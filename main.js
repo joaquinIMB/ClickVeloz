@@ -10,7 +10,7 @@ let square = document.getElementsByClassName("square");
 const btn1 = document.getElementById("btn_easy");
 const btn2 = document.getElementById("btn_hard");
 const btn3 = document.getElementById("btn_hardcore");
-// H2 PLAY
+//  PLAY
 const go = document.createElement("h2");
 let text = document.createTextNode("Play");
 go.appendChild(text);
