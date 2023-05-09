@@ -12,7 +12,7 @@ const btn2 = document.getElementById("btn_hard");
 const btn3 = document.getElementById("btn_hardcore");
 // PLAY
 const go = document.createElement("h2");
-let text = document.createTextNode("Play");
+let text = document.createTextNode("START");
 go.appendChild(text);
 // CONTAIN MODES
 let containModes = document.getElementById("play_modes");
@@ -45,9 +45,9 @@ const play = (mode) => {
   btn2.style.display = "none";
   btn3.style.display = "none";
   containTitle.style.display = "none";
-  go.style.cursor = "pointer";
   go.classList.add("mode_go");
   containModes.appendChild(go);
+  containModes.style.height = "15%"
   squares.style.display = "flex";
 };
 // TIME TO PLAY || INTERVAL || TIMEOUT
@@ -55,7 +55,6 @@ const start = () => {
   squares.style.pointerEvents = "auto";
   go.style.display = "none";
   containModes.appendChild(time);
-  containModes.style.height = "auto";
   time.classList.add("mode_go");
   time.innerHTML = second;
   function countDown() {
@@ -94,17 +93,18 @@ const action = () => {
   go.style.display = "none";
   containTitle.style.display = "block";
   btnReset.style.display = "block";
-  btnReset.style.fontSize = "40px";
   win = countToWin == 20;
   win ? resetGame(win) : resetGame();
 };
 // RESET GAME FOR PLAY AGAIN
 const resetGame = (ifWin = false) => {
   containModes.appendChild(btnReset);
+  containModes.style.height = "15%"
   btnReset.addEventListener("click", function () {
     location.reload();
   });
   title.textContent = ifWin ? "You Win" : "You Lose";
   title.style.color = ifWin ? "#00ff00" : "red";
-  squares.style.opacity = ifWin ? "0.5" : "0.5";
+  squares.style.animation = ifWin ? "" : "_squares-opacity 1s ease";
+  squares.style.opacity = ifWin ? "1" : "0";
 };
