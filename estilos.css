@@ -5,9 +5,8 @@
 }
 body {
   background: #000000;
-  font-display:optional;
+  font-display:auto;
   font-family: "Press Start 2P", cursive;
-  overflow-y: hidden;
 }
 .contain {
   margin: auto;
@@ -20,7 +19,6 @@ body {
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  /* justify-content: space-between; */
 }
 .contain-title {
   margin: auto;
@@ -208,7 +206,7 @@ body {
 }
 
 
-@media (max-width: 770px) {
+@media (max-width: 900px) {
   .contain-title {
     height: 30vh;
   }
@@ -225,7 +223,7 @@ body {
 @media (max-width: 575.98px) and (orientation: portrait) {
   .contain-title {
     margin: 0 auto;
-    height: 40%;
+    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -239,9 +237,6 @@ body {
     width: 90%;
     left: 5%;
     top: 25%;
-  }
-  .contain_time{
-    height: 5vh;
   }
   .time_to-end {
     font-size: 18px;
@@ -279,10 +274,21 @@ body {
     height: 8rem;
   }
 }
+@media (max-width: 390px){
+.contain_time{
+  height:5vh;
+}
+}
 @media (max-width: 375px) {
   .square{
     width: 5.5rem;
-    height: 7.5rem;
+    height: 8rem;
+  }
+  .mode_start{
+    font-size: 1.5rem;
+  }
+  .contain_time{
+    height:10vh;
   }
 }
 @media (max-width: 320px) {
@@ -293,7 +299,40 @@ body {
     width: 5rem;
     height: 7.5rem;
   }
-  .mode_start{
-    font-size: 1.5rem;
+}
+@media (max-height: 530px) {
+  .contain{
+    align-content: start;
+  }
+  .contain-title{
+    height: 40vh;
+  }
+  .all_squares{
+    height: 100vh;
+  }
+  .square{
+    width: 5.5rem;
+    height: 7rem;
+  }
+  .contain_time{
+    height: 5vh;
+  }
+}
+@media (max-height: 500px){
+  .contain_mode_Start{
+    gap:.5rem;
+  }
+  .mode-selected{
+    font-size: 2rem;
+  }
+  .square{
+    width: 5rem;
+    height: 5rem;
+  }
+  .contain_time{
+    height: 7vh;
+  }
+  .ifWinOrLose {
+    font-size: 3rem;
   }
 }
