@@ -318,6 +318,12 @@ body {
     height: 5vh;
   }
 }
+
+@media (min-height: 720px){
+  .square{
+    height: 8rem;
+  }
+}
 @media (max-height: 500px){
   .contain_mode_Start{
     gap:.5rem;
