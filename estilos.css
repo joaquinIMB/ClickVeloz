@@ -5,47 +5,52 @@
 }
 body {
   background: #000000;
+  font-display:optional;
+  font-family: "Press Start 2P", cursive;
+  overflow-y: hidden;
 }
 .contain {
   margin: auto;
   width: 100%;
-  height: 95vh;
+  height: 100vh;
   background: #000000;
-  font-family: "Press Start 2P", cursive;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-content: center;
+  /* justify-content: space-between; */
 }
 .contain-title {
   margin: auto;
   text-align: center;
   width: 100%;
+  height: 20vh;
 }
 .title {
-  font-size: 70px;
+  font-size: 5rem;
   color: #ffffff;
-  animation: _title 1s ease-out;
+  animation: _title 0.5s ease;
   text-shadow: 0px 4px 2px #505050;
   position: relative;
-  top:10px;
+  line-height: 1.2;
 }
 
 .modes {
   width: 100%;
-  height: 25%;
+  height: 50%;
   margin: 0 auto;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .mode {
   color: #ffffff;
   line-height: 80px;
-  font-size: 40px;
+  font-size: 3rem;
   margin: 0 auto;
-  background: #000000;
   border-radius: 5%;
   text-shadow: 0px 4px 2px #4a4a4a;
 }
@@ -60,50 +65,115 @@ body {
   text-shadow: 1px 2px 2px #ffffff;
 }
 
+.mode-selected {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 100;
+  pointer-events: none;
+}
+
 .easy_mode {
-  animation: _easy 1s ease-in;
+  animation: _easy 0.3s ease;
 }
 
 .hard_mode {
-  animation: _hard 1s ease-in-out;
+  animation: _hard 0.4s ease;
 }
-.hardcore_mode {
-  animation: _hardcore 1s ease-out;
+.extreme_mode {
+  animation: _extreme 0.5s ease;
 }
 
-.mode_go {
-  color: #ffffff;
-  font-size: 40px;
-  margin: auto;
-  background: #000000;
-  text-shadow: 0px 4px 2px #4a4a4a;
+.contain_mode_Start {
+  width: 50%;
+  top:25%;
+  left: 25%;
+  height: 50%;
+  border-radius: 5px;
+  border: 2px solid #0a0a0a;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.5rem;
+  z-index: 999;
+  background: #00000085;
+}
+
+.mode_start {
   position: relative;
-  top: 20px;
-  cursor: pointer;
+  display: block;
+  text-align: left;
+  line-height: 1.3;
+  color: #fff;
+  margin: 0 auto;
+  background: #000000;
+  font-size: 1.8rem;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+  cursor:pointer;
+}
+
+.ifWinOrLose {
+  position: relative;
+  display: block;
+  font-size: 5rem;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1.3;
+  text-shadow: rgb(0 0 0) 0px 2px 2px;
+  pointer-events: none;
+}
+
+.contain_time {
+  width: 100%;
+  height: 10vh;
+  position: absolute;
+  display: flex;
+  left: 0;
+  bottom: 0;
+  z-index: 997;
+  background: #000000;
+}
+
+.time_to-end {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin: auto 1rem;
+  position: relative;
+  font-weight: 100;
+  text-transform: uppercase;
 }
 
 .all_squares {
-  margin: auto;
-  width: 50%;
-  height: auto;
+  width: 55%;
+  height: 100vh;
   position: relative;
-  display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-content: center;
   pointer-events: none;
-  animation: _squares 1.2s ease;
+  opacity: .8;
+  z-index: 999;
+  display: none;
 }
 .square {
-  width: 7.67rem;
-  height: 7.5rem;
+  width: 9.2rem;
+  height: 9rem;
+  background: #ffffff;
+  border: 1px solid #4a4a4a;
 }
 
 .square1 {
   opacity: 0;
 }
+
 @keyframes _title {
   0% {
-    transform: translateY(-400px);
+    transform: translateY(-50px);
   }
   100% {
     transform: translateY(0);
@@ -112,10 +182,7 @@ body {
 
 @keyframes _easy {
   0% {
-    transform: translateX(-850px);
-  }
-  90% {
-    transform: translateX(10px);
+    transform: translateX(-150px);
   }
   100% {
     transform: translateX(0);
@@ -123,22 +190,16 @@ body {
 }
 @keyframes _hard {
   0% {
-    transform: translateX(-850px);
-  }
-  90% {
-    transform: translateX(10px);
+    transform: translateX(-150px);
   }
 
   100% {
     transform: translateX(0);
   }
 }
-@keyframes _hardcore {
+@keyframes _extreme {
   0% {
-    transform: translateX(-850px);
-  }
-  90% {
-    transform: translateX(10px);
+    transform: translateX(-150px);
   }
 
   100% {
@@ -146,41 +207,93 @@ body {
   }
 }
 
-@keyframes _squares {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    transform-origin: left;
-    opacity: 1;
-  }
-}
-@keyframes _squares-opacity {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 
-@media (max-width: 575.98px) and (orientation: portrait) {
-  .title {
-    font-size: 40px;
-    padding: 0;
-    line-height: 1.5;
-  }
-  .mode {
-    font-size: 38px;
-    margin: auto;
-    line-height: 45px;
+@media (max-width: 770px) {
+  .contain-title {
+    height: 30vh;
   }
   .all_squares {
     width: 100%;
-    top: -10px;
+    align-content: start;
+  }
+  .contain_mode_Start{
+    width: 70%;
+    top: 25%;
+    left: 15%;
+  }
+}
+@media (max-width: 575.98px) and (orientation: portrait) {
+  .contain-title {
+    margin: 0 auto;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    font-size: 4rem;
+    padding: 0;
+    line-height: 1.5;
+  }
+  .contain_mode_Start {
+    width: 90%;
+    left: 5%;
+    top: 25%;
+  }
+  .contain_time{
+    height: 5vh;
+  }
+  .time_to-end {
+    font-size: 18px;
+  }
+  .ifWinOrLose {
+    font-size: 4rem;
+  }
+  .modes {
+    width: 90%;
+    height: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .mode {
+    font-size: 40px;
+    margin: auto;
+    line-height: 45px;
+  }
+  .mode_go {
+    color: #000000;
+    font-size: 3rem;
+    text-shadow: 0px 2px 2px #fffaeb;
+  }
+  .all_squares {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100vh;
+    overflow: hidden;
+    align-content: start;
   }
   .square {
+    width: 6rem;
+    height: 8rem;
+  }
+}
+@media (max-width: 375px) {
+  .square{
+    width: 5.5rem;
+    height: 7.5rem;
+  }
+}
+@media (max-width: 320px) {
+  .title{
+    font-size: 3.5rem;
+  }
+  .square{
     width: 5rem;
-    height: 5rem;
+    height: 7.5rem;
+  }
+  .mode_start{
+    font-size: 1.5rem;
   }
 }
