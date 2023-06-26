@@ -321,7 +321,7 @@ body {
 
 @media (min-height: 720px){
   .square{
-    height: 8rem;
+    height: 9rem;
   }
 }
 @media (max-height: 500px){
